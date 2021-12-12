@@ -15,10 +15,10 @@ All the data and classification h5 model files are stored in the ZJE institute s
 you can run the command 'scp -r 3180110107bit@10.105.100.153:/public/workspace/3180110107bit/BIA4 to/your/path/' and then type the password '111111' to download the data and models.
 
 
--   **BIA_project_report_Group_8**: Project report
+-   **BIA4 group 8 group report.docx**: Project report
+
 1. Segmentation
 -	**seg_3.h5**: The trained Unet model for Lung segmentation in X-ray
--	**BIA_project_report_Group_8**: Project report
 -	**self_model.py**: Main source code for Lung segmentation, contains codes and discriptions of image preprocessing, model construction, accuracy evaluation & visaulization
 -	**load_model and segment.py**: Codes to load the pretrained Unet model to produce images of the segmented lungs using classification dataset
 2. Classification

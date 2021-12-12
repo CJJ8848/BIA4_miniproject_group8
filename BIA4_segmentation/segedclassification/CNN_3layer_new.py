@@ -54,27 +54,24 @@ score = model.evaluate(test_flow,steps=25)
 print('Test loss:', score[0])
 print('Test accuracy:', score[1])
 
-#hist return the acc and loss trends of each epoch
 #print(hist.history.keys())
 acc = hist.history['accuracy']
 val_acc = hist.history['val_accuracy']
 loss = hist.history['loss']
 val_loss = hist.history['val_loss']
-model.save(save_pathway+'acc_'+str(score[1])+"_batch"+str(train_batch_size)+"_op_"+str(op)+'_model_3layer.h5')
+model.save(save_pathway+'acc_'+str(score[1])+"_batch"+str(train_batch_size)+"_op_"+str(op)+'_model_3layer_seged.h5')
 epochs = range(len(acc))
-#plot
-plt.figure()
+
 plt.plot(epochs, acc, 'bo', label='Training acc')
 plt.plot(epochs, val_acc, 'b', label='Validation acc')
 plt.title('Training and validation accuracy')
-plt.legend()
 
-plt.savefig(dirname(__file__)+"/acc_and_loss/"+str(score[1])+"_batch"+str(train_batch_size)+"_op_"+str(op)+"_acc_3layer.png")
-plt.show()
+plt.legend()
+plt.figure()
+plt.savefig(dirname(__file__)+"/acc_and_loss/"+str(score[1])+"_batch"+str(train_batch_size)+"_op_"+str(op)+"_acc_3layer_seged.png")
 plt.figure()
 plt.plot(epochs, loss, 'bo', label='Training loss')
 plt.plot(epochs, val_loss, 'b', label='Validation loss')
 plt.legend()
-#save
-plt.savefig(dirname(__file__)+"/acc_and_loss/"+str(score[1])+"_batch"+str(train_batch_size)+"op_"+str(op)+"_loss_3layer.png")
+plt.savefig(dirname(__file__)+"/acc_and_loss/"+str(score[1])+"_batch"+str(train_batch_size)+"op_"+str(op)+"_loss_3layer_seged.png")
 plt.show()
