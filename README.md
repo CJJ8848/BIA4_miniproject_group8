@@ -28,10 +28,10 @@ you can run the command 'scp -r 3180110107bit@10.105.100.153:/public/workspace/3
 -	**CNN_3layer.py**: used to train the best model
 -	**ROC.py**: plot the ROC curve
 -	**GUI.py**: the GUI 
-
+-	**GUI documentation.doc**: the GUI operating guide
 ## Getting Started 
 
-###Segmentation
+### Segmentation
 1. Enter python environment 
 ```text
 python3
@@ -46,12 +46,12 @@ mkdir test
 ```text
 python3 Python path/of/your/.py
 ```
-###Classification
+### Classification
 running example of the "CNN_3layer.py" scripts):
 
   just run the commend 'Python path/of/CNN_3layer.py' and then follow the tips to input image dataset pathway and the save pathway of h5 model.
 
-###GUI
+### GUI
 Operating guide of GUI:
 
 To open the GUI, you can type in ‘python3 /to/your/path/of/GUI.py’ into command line.
