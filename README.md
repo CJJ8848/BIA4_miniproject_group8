@@ -53,6 +53,7 @@ running example of the "CNN_3layer.py" scripts):
 
 ###GUI
 Operating guide of GUI:
+
 To open the GUI, you can type in ‘python3 /to/your/path/of/GUI.py’ into command line.
 
 Details of operating guide can be found in 'GUI documentation.doc'.
