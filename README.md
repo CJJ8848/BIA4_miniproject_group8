@@ -32,14 +32,15 @@ you can run the command 'scp -r 3180110107bit@10.105.100.153:/public/workspace/3
 ## Getting Started 
 
 ### Segmentation
-Input command lines
+
+To segment your images with our model, you can simply run the file 'Segmentation.py' by:
 ```text
-python3 Python path/of/your/.py
+python Segmentation --input /directory_of_images --output /directory_to_save
 ```
 ### Classification
-running example of the "CNN_3layer.py" scripts):
+running example of the "CNN_3layer.py" scripts:
 
-  just run the commend 'Python path/of/CNN_3layer.py' and then follow the tips to input image dataset pathway and the save pathway of h5 model.
+  just run the commend 'python /path/of/CNN_3layer.py' and then follow the tips to input image dataset pathway and the save pathway of h5 model.
 
 ### GUI
 Operating guide of GUI:
