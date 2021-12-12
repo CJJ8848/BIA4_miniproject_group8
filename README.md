@@ -11,8 +11,8 @@ Welcome! Our project focused to identify the tuberculosis based on chest radiogr
 **The language version used for classification codes is python 3.7 with tensorflow=1.13.1, keras=2.3.1.**
 
 
-All the data and h5 model files are stored in the ZJE institute server, 
-you can run the command 'scp -r 3180110107bit@10.105.100.153:/public/workspace/3180110107bit/BIA4 to/your/path/' and then type the password '111111' to download the iamge data files.
+All the data and classification h5 model files are stored in the ZJE institute server (because of the upload file size limitation of github),
+you can run the command 'scp -r 3180110107bit@10.105.100.153:/public/workspace/3180110107bit/BIA4 to/your/path/' and then type the password '111111' to download the data and models.
 
 
 -   **BIA_project_report_Group_8**: Project report
