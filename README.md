@@ -51,4 +51,8 @@ running example of the "CNN_3layer.py" scripts):
 
   just run the commend 'Python path/of/CNN_3layer.py' and then follow the tips to input image dataset pathway and the save pathway of h5 model.
 
+###GUI
+Operating guide of GUI:
+To open the GUI, you can type in ‘python3 /to/your/path/of/GUI.py’ into command line.
 
+Details of operating guide can be found in 'GUI documentation.doc'.
