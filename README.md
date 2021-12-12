@@ -12,7 +12,7 @@ Welcome! Our project focused to identify the tuberculosis based on chest radiogr
 
 
 All the data and classification h5 model files are stored in the ZJE institute server (because of the upload file size limitation of github),
-you can run the command 'scp -r 3180110107bit@10.105.100.153:/public/workspace/3180110107bit/BIA4 to/your/path/' and then type the password '111111' to download the data and models.
+you can run the command 'scp -r 3180110107bit@10.105.100.153:/public/workspace/3180110107bit/BIA4remote to/your/path/' and then type the password '111111' to download the data and models.
 
 
 -   **BIA4 group 8 group report.docx**: Project report
