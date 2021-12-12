@@ -21,6 +21,8 @@ you can run the command 'scp -r 3180110107bit@10.105.100.153:/public/workspace/3
 -	**seg_3.h5**: The trained Unet model for Lung segmentation in X-ray
 -	**self_model.py**: Main source code for Lung segmentation, contains codes and discriptions of image preprocessing, model construction, accuracy evaluation & visaulization
 -	**load_model and segment.py**: Codes to load the pretrained Unet model to produce images of the segmented lungs using classification dataset
+-	**Segmentation.py**: a tool for users to segment their own dataset using our model.
+
 2. Classification
 -	**train_test_val.py**: divide the dataset into train(0.7),test(0.1) and val(0.2) subsets.
 -	**gray2rgb.py**: used to tranform the format of images into RGB.
@@ -35,7 +37,7 @@ you can run the command 'scp -r 3180110107bit@10.105.100.153:/public/workspace/3
 
 To segment your images with our model, you can simply run the file 'Segmentation.py' by:
 ```text
-python Segmentation --input /directory_of_images --output /directory_to_save
+python Segmentation.py --input /directory_of_images --output /directory_to_save
 ```
 ### Classification
 running example of the "CNN_3layer.py" scripts:
