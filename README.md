@@ -1,9 +1,5 @@
 # BIA4
----
-output:
-  html_document: default
-  pdf_document: default
----
+
 # BIA project
 **Group8**
  
