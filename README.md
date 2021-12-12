@@ -32,17 +32,7 @@ you can run the command 'scp -r 3180110107bit@10.105.100.153:/public/workspace/3
 ## Getting Started 
 
 ### Segmentation
-1. Enter python environment 
-```text
-python3
-```
-
-2. Create a 'test' folder under your provided directory to hold the images.
-```text
-cd your/test/dir
-mkdir test
-```
-3. Input command lines
+Input command lines
 ```text
 python3 Python path/of/your/.py
 ```
