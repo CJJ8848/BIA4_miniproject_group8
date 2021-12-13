@@ -36,6 +36,7 @@ def load_image(images_dir, img_size,suffix='jpeg',dtype=np.uint8):
     images = []
     #print(images[0].shape)
     for i, path in enumerate(images_path):
+        #judge the dimension of input image
         if len(imread(path).shape) ==3:
            img = cv2.resize(cv2.imread(path),img_size)[:,:,0]
            images.append(img)
@@ -46,6 +47,7 @@ def load_image(images_dir, img_size,suffix='jpeg',dtype=np.uint8):
     #if len(images)<16 == True:
      #   print("No enough png files for prediction.")
     images = np.array(images).reshape(len(images),512,512,1) / 255.0
+    #normalization image to (0,1)
     return images, images_path
 
 if os.path.exists(args.input) == False:
@@ -57,14 +59,13 @@ input_images,input_path= load_image(images_dir=args.input, img_size=img_size,suf
 preds=loaded_model.predict(input_images)
 preds=preds*255
 
-def dice_coef_loss(y_true, y_pred):
-    return 1-dice_coef(y_true, y_pred)
 
 #load the pretrained model
 loaded_model = keras.models.load_model("seg_3.h5",custom_objects={'dice_coef_loss': dice_coef_loss,'dice_coef':dice_coef})
 loaded_model.summary()
 
-#implementation of the ostu algorithm to seperate threshold of mask 
+#implementation of the ostu algorithm to seperate threshold of mask
+#it fails here due to the version collision
 #def otsu(img):
     #caluculate each pixel's weight
    # mean_weight=1/(img.shape[0] * img.shape[1])
@@ -83,8 +84,8 @@ loaded_model.summary()
       #  m1=pc1 * mean_weight
       #  m2=pc2 * mean_weight
         #calculate class mean = weighted-class p / class p
-      #  mc1=np.sum(np.fromiter(i * counts[i] for i in range(0,bin),dtype=np.float32)) / m1
-      #  mc2=np.sum(np.fromiter(i * counts[i] for i in range(bin,255)),dtype=np.float32) / m2
+      #  mc1=np.sum(i * counts[i] for i in range(0,bin)) / m1
+      #  mc2=np.sum(i * counts[i] for i in range(bin,255)) / m2
       #  final_value=pc1*pc2*(mc1-mc2)**2
 
         #iterate for the maximun inter-class variance
@@ -103,7 +104,9 @@ def otsu_new(gray_img):
         n0 = gray_img[np.where(gray_img < t)]
         n1 = gray_img[np.where(gray_img>=t)]
         w0 = len(n0)/(h*w)
+        #w1: the prportion of target in the image
         w1 = len(n1)/(h*w)
+        #w1:the proportion of background in the image
         u0 = np.mean(n0) if len(n0)>0 else 0
         u1 = np.mean(n1) if len(n1)>0 else 0
     
@@ -114,12 +117,18 @@ def otsu_new(gray_img):
     #print ('biggest difference between class：',threshold_t)
     gray_img[gray_img<threshold_t] = 0
     gray_img[gray_img>threshold_t] = 255
-    return gray_img
+    return gray_img,threshold_t
 
 
 for i in range(input_images.shape[0]):
     predi = preds[i]
-    segmented_lung=otsu_new(predi)
-    cv2.imwrite(args.output+"/"+"{0}".format(input_path[i].split('/')[-1]),segmented_lung)
+    segmented_lung,threshold=otsu_new(predi)
+    #instead of juding ever pixes, using 0/255 characteristics of segmented lung 
+    img_2 = segmented_lung*input_images[i]
+    #for j in range(segmented_lung.shape[0]):
+     #   for k in range(segmented_lung.shape[1]):
+      #      if segmented_lung[j][k]>=threshold:
+       #         segmented_lung[j][k] == ori_img[j][k]
+    cv2.imwrite(args.output+"/"+"{0}".format(input_path[i].split('/')[-1]),img_2)
 
 
